@@ -10,9 +10,9 @@ class BookList extends Component {
 		return this.props.books.map((book) => {
 
 			return (
-
-				<li key={book.title} className="list-group-itme">{book.title}</li>
-		})
+				<li key={book.title} className="list-group-item">{book.title}</li>
+			);
+		});
 	}
 	render() {
 		return (
@@ -37,5 +37,5 @@ function mapStateToProps(state) {
 }
 
 
-export default connect(mapSTateToProps)(BookList);
+export default connect(mapStateToProps)(BookList);
 //connect takes a function, and component to produce a container
