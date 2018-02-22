@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; 
+import { selectBook } from '../actoins/index';
+import { bindActionCreators } from 'redux';
+
 //glue between React and Redux, and makes connect function available.
 
 //This is a container that has direct access from Redux.
