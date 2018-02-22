@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { connect} from 'react-redux';
 
-export default class BookList extends Component {
+//This is a container that has direct access from Redux.
+class BookList extends Component {
 
 	renderList() {
 
