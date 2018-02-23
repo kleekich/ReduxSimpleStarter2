@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; 
-import { selectBook } from '../actoins/index';
+import { selectBook } from '../actions/index';
 import { bindActionCreators } from 'redux';
-
-//glue between React and Redux, and makes connect function available.
-
-//This is a container that has direct access from Redux.
+/*
+	A container is a react component that has direct connection to state
+	managed by Redux.
+	glue between React and Redux, and makes connect function available.
+*/
 class BookList extends Component {
 
 	renderList() {
@@ -22,6 +23,8 @@ class BookList extends Component {
 			);
 		});
 	}
+
+
 	render() {
 		return (
 			<ul className="list-group col-sm-4">
@@ -30,7 +33,11 @@ class BookList extends Component {
 		)
 	}
 }
+
+
 /*
+This mapStateToProps is the glue between Redux and React.
+
 Whenever state ever changes, 
 1. this container automatically re-render with new state.books
 2. the object in the state function will be asgined to props
@@ -39,8 +46,8 @@ function mapStateToProps(state) {
 	//Whatever is returned will show up as props inside of BookLists
 
 	return {
-		books: state.books
-		//because reducer returns books we set it to state.books
+		books: state.books//->This is what Reducer returns
+		//now we can access this.props.books
 	};
 }
 
@@ -50,10 +57,10 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
 	//Whenever selectBook is called, the result should be passed to 
 	//all of our reducers
-	//selectBook is a action creator we imported
 	//result flows through dispatch function, and dispatch function 
 	//takes all the actions and spits back to all the reducers
-	return bindActionCreators({ selectBook: selectBook }. dispatch)
+	return bindActionCreators({ selectBook: selectBook }, dispatch)
+	//The selectBook as a value is the actiona creator that is imported at the top.
 }
 
 
