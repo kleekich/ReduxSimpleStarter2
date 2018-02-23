@@ -51,7 +51,7 @@ function mapStateToProps(state) {
 	};
 }
 
-
+ 
 /*
 	Anything returned from this function will end up as props on the 
  	BookList container
