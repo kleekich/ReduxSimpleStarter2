@@ -52,19 +52,28 @@ function mapStateToProps(state) {
 }
 
 
-//Anything returned from this function will end up as props
-//on the BookList container
+/*
+	Anything returned from this function will end up as props on the 
+ 	BookList container
+*/
 function mapDispatchToProps(dispatch) {
-	//Whenever selectBook is called, the result should be passed to 
-	//all of our reducers
-	//result flows through dispatch function, and dispatch function 
-	//takes all the actions and spits back to all the reducers
+	/*
+		Whenever selectBook is called, the result should be passed to 
+		all of our reducers
+		bindActionCreators with dispatch parameter means:
+		I want to make sure that result flows through dispatch function,
+		and dispatch function takes all the actions and spits back to 
+		all the reducers
+	*/
 	return bindActionCreators({ selectBook: selectBook }, dispatch)
-	//The selectBook as a value is the actiona creator that is imported at the top.
+	//The selectBook as a value is the actiona creator that is imported 
+	//at the top.
 }
 
 
-// Promote BookList from a compnent to a container - it needs to know
-//about this new dispatch method, selectBook. Make it available as a prop.
+/* 
+	Promote BookList from a compnent to a container - it needs to know
+	about this new dispatch method, selectBook. Make it available as a prop.
+*/
 export default connect(mapStateToProps, mapDispatchToProps)(BookList);
 //connect takes a function, and component to produce a container
