@@ -1,8 +1,10 @@
 import React, { Component} from 'react';
 
 export default class BookDetail extends Component {
-reunder() {
-	
-}
+	render() {
+		return (
+			<div>Book Detail! </div>
+		);
+	}
 
 }
